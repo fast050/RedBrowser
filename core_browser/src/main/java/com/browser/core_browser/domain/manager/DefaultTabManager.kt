@@ -72,6 +72,7 @@ class DefaultTabManager : TabManager {
      * Returns the currently active tab, or null if no tabs are open.
      */
     override fun getCurrentTab(): RedBrowserTab? {
+        currentTabIndex = if(currentTabIndex >= tabs.size) tabs.size - 1 else currentTabIndex
         return if (tabs.isNotEmpty()) tabs[currentTabIndex] else null
     }
 
